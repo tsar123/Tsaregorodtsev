@@ -10,7 +10,23 @@ currencyToRub = {
 
 
 class Vacancy:
+    """Класс Vacancy устанавливает все основные поля вакансии
+
+        Attributes:
+            name (str): название файла,
+            salary (int): зарплата,
+            area_name (str): город,
+            published_at (str): дата и время публикации
+        """
     def __init__(self, name, salary, area_name, published_at):
+        """Инициализирует объект Vacancy
+
+        Args:
+            name (str): название файла,
+            salary (int): зарплата,
+            area_name (str): город,
+            published_at (str): дата и время публикации
+        """
         self.name = name
         self.salary = salary
         self.area_name = area_name
@@ -18,7 +34,22 @@ class Vacancy:
 
 
 class Salary:
+    """Класс для предоставления зарплаты
+
+    Attributes:
+        salary_from (int): нижняя граница вилки оклада,
+        salary_to (int): верхняя граница вилки оклада,
+        salary_currency (str): валюта оклада
+    """
     def __init__(self, salary_from, salary_to, salary_currency):
+        """Инициализирует объект Salary и выполняет конвертацию для целых полей
+
+        Args:
+            salary_from (str или int или float): нижняя граница вилки оклада,
+            salary_to (str или int или float): верхняя граница вилки оклада,
+            salary_currency (str или int или float): валюта оклада
+            salary_ru (float): средняя зарплата из вилки в рублях, переводит при помощи словаря - currencyToRub
+        """
         self.salary_from = salary_from
         self.salary_to = salary_to
         self.salary_currency = salary_currency
@@ -26,16 +57,37 @@ class Salary:
             self.salary_currency]
 
     def get_salary_ru(self):
+        """Возвращает вычисление salary_ru
+
+        Returns:
+            float: средняя зарплата в рублях
+        """
         return self.salary_ru
 
 
 class DataSet:
+    """Класс DataSet отвечает за чтение и подготовку данных
+
+    Attributes:
+        file_name (str): название файла
+    """
     def __init__(self, file_name):
+        """Инициализирует объект DataSet
+
+        Args:
+            file_name (str или int или float): название файла
+            vacancies_objects (str или int или float): название профессии
+        """
         self.file_name = file_name
         self.vacancies_objects = DataSet.prepare(file_name)
 
     @staticmethod
     def csv_reader(filename):
+        """Осуществляет выход, если файл пустой или возвращает колонки и строки
+
+        Returns:
+            tuple: колонки, строки
+        """
         with open(filename, encoding="utf-8-sig") as f:
             data = [x for x in csv.reader(f)]
         try:
@@ -48,6 +100,11 @@ class DataSet:
 
     @staticmethod
     def prepare(filename):
+        """Возвращает список с данными по одной вакансии
+
+        Returns:
+            list: список с данными по одной вакансии
+        """
         clmns, lines = DataSet.csv_reader(filename)
         filtred = [i for i in lines if len(i) == len(clmns) and '' not in i]
         vac = []
@@ -67,21 +124,46 @@ class DataSet:
 
     @staticmethod
     def remove_tags(args):
+        """Возвращает вводимые данные без тегов
+
+        Returns:
+            str: вводимые данные без тегов
+        """
         return " ".join(re.sub(r"\<[^>]*\>", "", args).split())
 
 
 class InputConnect:
+    """Класс InputConect отвечает за обработку параметров вводимых пользователем и
+
+    Attributes:
+
+    """
     def __init__(self):
+        """Инициализирует объект InputConnect
+
+        Args:
+
+        """
         self.params = InputConnect.get_prms()
 
     @staticmethod
     def get_prms():
+        """Возвращает вводимые название файла и название профессии
+
+        Returns:
+            tuple: название файла, название профессии
+        """
         file_name = input("Введите имя файла: ")
         vacancy = input("Введите название профессии")
         return file_name, vacancy
 
     @staticmethod
     def first_corr(dic):
+        """Возвращает словарь из дессяти первых значений
+
+        Returns:
+            dict: десять первых значений
+        """
         res = {}
         i = 0
         for key, value in dic.items():
@@ -93,6 +175,12 @@ class InputConnect:
 
     @staticmethod
     def print(dic_vacancies, vac_name):
+        """Возвращает значения для построения диграмм
+
+        Returns:
+            dict: динамика зарплат, уровня зарплат, количества вакансий по годам
+            float: уровень зарплат по городам, доля вакансий по городам
+        """
         years = set()
         for vacancy in dic_vacancies:
             years.add(int(datetime.strptime(vacancy.published_at, '%Y-%m-%dT%H:%M:%S%z').strftime('%Y')))
@@ -140,8 +228,18 @@ class InputConnect:
 
 
 class Report:
+    """Класс Report отвечает за формирование диграмм
+
+    Attributes:
+
+    """
     @staticmethod
     def replaceN(w):
+        """Удаляет перенос строки и возвращает входящие исправленные данные
+
+        Returns:
+            dict: входящие данные без переноса
+        """
         for k in list(w.keys()):
             if '-' in k:
                 n = k.replace('-', '\n')
@@ -157,12 +255,22 @@ class Report:
 
     @staticmethod
     def summaryOther(w):
+        """Рассчитывает долю других городов не входящих в ТОП-10 городов и возвращает словарь
+
+        Returns:
+            dict: доля других городов не входящих в ТОП-10
+        """
         w['Другие'] = 1 - sum(w.values())
         w = {k: v for k, v in sorted(w.items(), key=lambda item: item[1], reverse=True)}
         return w
 
     @staticmethod
     def makeDiagrams(info, vac):
+        """Осуществляет компоновку и построение диграмм
+
+        Returns:
+            None
+        """
         salary_years = info[0]
         vac_salary_years = info[1]
         vacs_years = info[2]
