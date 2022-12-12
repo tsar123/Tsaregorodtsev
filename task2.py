@@ -140,6 +140,9 @@ class DataSet:
         """
         return " ".join(re.sub(r"\<[^>]*\>", "", args).split())
 
+def FormatDate(date):
+    #date.split('-')
+    return date[:4]
 
 class InputConnect:
     """Класс InputConect отвечает за обработку параметров вводимых пользователем и
