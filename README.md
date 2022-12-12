@@ -21,3 +21,7 @@ Task 3. Профилирование
 
 3.4 итог
 ![image](https://user-images.githubusercontent.com/65504823/207006224-8616be94-0363-4825-a02e-2bd86757120c.png)
+
+Task 4. Разделение данных
+4.1 
+![image](https://user-images.githubusercontent.com/65504823/207012133-74eb0962-eaff-430a-aea5-5ca7136277a6.png)
