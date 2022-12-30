@@ -26,13 +26,11 @@ Task 4. Разделение данных
 4.1 
 ![image](https://user-images.githubusercontent.com/65504823/207012133-74eb0962-eaff-430a-aea5-5ca7136277a6.png)
 
-
-Task 5. Базы данных
-5.2 
-![2022-12-31_02-51-10](https://user-images.githubusercontent.com/65504823/210114303-77cab7ae-1f53-4859-89c7-d301704eee61.png)
-
-
 Task 5. API - курс валют
 
 5.1 
 ![image](https://user-images.githubusercontent.com/65504823/208400293-5c61e331-9eed-4f0d-881f-45602deb6d26.png)
+
+Task 6. Базы данных
+6.2 
+![2022-12-31_02-51-10](https://user-images.githubusercontent.com/65504823/210114303-77cab7ae-1f53-4859-89c7-d301704eee61.png)
