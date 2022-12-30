@@ -35,3 +35,18 @@ Task 6. Базы данных
 
 6.2 
 ![2022-12-31_02-51-10](https://user-images.githubusercontent.com/65504823/210114303-77cab7ae-1f53-4859-89c7-d301704eee61.png)
+
+6.3
+![image](https://user-images.githubusercontent.com/65504823/210117102-e5567f29-e25d-44ee-865f-6634750ade18.png)
+
+Средняя зарплата аналитика:
+![image](https://user-images.githubusercontent.com/65504823/210117135-b8dd85e1-2da8-40cc-9ff6-7f45335c7f3b.png)
+
+Количество вакансий "аналитик":
+![image](https://user-images.githubusercontent.com/65504823/210117160-ce5024af-e8b7-411b-9a05-3c385c66770d.png)
+
+Уровень зарплаты аналитика по городам:
+![image](https://user-images.githubusercontent.com/65504823/210117187-dc298c0d-4c40-4c37-8bd5-617feab89c3d.png)
+
+Доля вакансий по городам: 
+![image](https://user-images.githubusercontent.com/65504823/210117246-0a146918-ca8e-4ea4-89fd-e7e94ac6bdfb.png)
