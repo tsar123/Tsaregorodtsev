@@ -43,4 +43,4 @@ class TransferToDatabase:
 
 
 input = InputConnect()
-TransferToDatabase.createTable(input.params[0], input.params[1])
+TransferToDatabase.createTable(input.params[0], input.params[1]) 
